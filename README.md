@@ -1,11 +1,9 @@
-[![](https://img.shields.io/maven-central/v/org.scijava/native-lib-loader.svg)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.scijava%22%20AND%20a%3A%22native-lib-loader%22)
-[![](https://travis-ci.org/scijava/native-lib-loader.svg?branch=master)](https://travis-ci.org/scijava/native-lib-loader)
+# About native executable loader
 
-# About native library loader
-
-The native library loader is a utility that assists with loading native
-libraries from Java. It provides the ability to painlessly identify, extract
-and load the correct platform-specific native library from a JAR file.
+The native executable loader is a utility that assists with loading native
+executables from Java. It provides the ability to painlessly identify, extract
+and run the correct platform-specific native executable. This is work in progress, 
+and isn't ready for use yet.
 
 
 ##### License
@@ -15,50 +13,37 @@ Simplified BSD License
 
 # Usage
 
-### Add dependency
+### Package native executables
 
-Search Maven Central for [latest version](http://search.maven.org/#search|ga|1|a:native-lib-loader)
-and add a dependency to your pom.xml.
-
-```xml
-<dependency>
-    <groupId>org.scijava</groupId>
-    <artifactId>native-lib-loader</artifactId>
-    <version>x.y.z</version>
-</dependency>
-```
-
-### Package native libraries
-
-Native libraries should be packaged into a single jar file, with the
+Native executables should be packaged into a single jar file, with the
 following directory & file structure:
 
 ```
 /natives
   /linux_32
-     libxxx[-vvv].so
+     xxx[-vvv]
   /linux_64
-     libxxx[-vvv].so
+     xxx[-vvv]
   /osx_32
-     libxxx[-vvv].dylib
+     xxx[-vvv]
   /osx_64
-     libxxx[-vvv].dylib
+     xxx[-vvv]
   /osx_arm64
-     libxxx[-vvv].dylib
+     xxx[-vvv]
   /windows_32
-     xxx[-vvv].dll
+     xxx[-vvv].exe
   /windows_64
-     xxx[-vvv].dll
+     xxx[-vvv].exe
   /aix_32
-     libxxx[-vvv].so
-     libxxx[-vvv].a
+     xxx[-vvv]
+     xxx[-vvv]
   /aix_64
-     libxxx[-vvv].so
-     libxxx[-vvv].a
+     xxx[-vvv]
+     xxx[-vvv]
 ```
 
-Here "xxx" is the name of the native library and "-vvv" is an optional version number.
-Depending on the platform at runtime, a native library will be unpacked into a temporary file
+Here "xxx" is the name of the native executable and "-vvv" is an optional version number.
+Depending on the platform at runtime, a native executable will be unpacked into a temporary file
 and will be loaded from there.
 
 The version information will be grabbed from the MANIFEST.mf file
@@ -66,11 +51,11 @@ from "Implementation-Version" entry. So it's recommended to follow Java's
 [package version information](https://docs.oracle.com/javase/tutorial/deployment/jar/packageman.html)
 convention. 
 
-### Load library
+### Run executable
 
-If you want to load 'awesome.dll' (on Windows) or 'libawesome.so' (on Linux or AIX),
+If you want to run 'awesome.exe' (on Windows) or 'awesome' (on Linux or AIX),
 simply do like this ...
 
 ```Java
-NativeLoader.loadLibrary("awesome");
+NativeExe.runExe("awesome");
 ```
