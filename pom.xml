@@ -9,16 +9,16 @@
 		<relativePath />
 	</parent>
 
-	<artifactId>native-lib-loader</artifactId>
-	<version>2.3.6-SNAPSHOT</version>
+	<artifactId>native-exe-loader</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 
-	<name>Native Library Loader</name>
-	<description>A library for loading native libraries.</description>
-	<url>https://github.com/scijava/native-lib-loader</url>
-	<inceptionYear>2010</inceptionYear>
+	<name>Native Executable Loader</name>
+	<description>A library for loading native executables.</description>
+	<url>https://github.com/programmerPhysicist/native-lib-loader</url>
+	<inceptionYear>2021</inceptionYear>
 	<organization>
-		<name>SciJava</name>
-		<url>https://scijava.org/</url>
+		<name>None</name>
+		<url></url>
 	</organization>
 	<licenses>
 		<license>
@@ -29,9 +29,9 @@
 
 	<developers>
 		<developer>
-			<id>ctrueden</id>
-			<name>Curtis Rueden</name>
-			<url>https://imagej.net/User:Rueden</url>
+			<id>programmerPhysicist</id>
+			<name>programmerPhysicist</name>
+			<url>https://github.com/programmerPhysicist</url>
 			<roles>
 				<role>lead</role>
 				<role>developer</role>
@@ -43,6 +43,12 @@
 		</developer>
 	</developers>
 	<contributors>
+                <contributor>
+                    <name>Curtis Rueden</name>
+                    <url>https://imagej.net/User:Rueden</url>
+                    <roles><role>developer</role></roles>
+                    <properties><id>ctrueden</id></properties> 
+                </contributor>
 		<contributor>
 			<name>Aivar Grislis</name>
 			<url>https://imagej.net/User:Grislis</url>
@@ -88,11 +94,11 @@
 
 	<mailingLists>
 		<mailingList>
-			<name>SciJava</name>
-			<subscribe>https://groups.google.com/group/scijava</subscribe>
-			<unsubscribe>https://groups.google.com/group/scijava</unsubscribe>
-			<post>scijava@googlegroups.com</post>
-			<archive>https://groups.google.com/group/scijava</archive>
+			<name>None</name>
+			<subscribe>N/A</subscribe>
+			<unsubscribe>N/A</unsubscribe>
+			<post>N/A</post>
+			<archive>N/A</archive>
 		</mailingList>
 	</mailingLists>
 
@@ -107,16 +113,16 @@
 		<url>https://github.com/programmerPhysicist/native-lib-loader/issues</url>
 	</issueManagement>
 	<ciManagement>
-		<system>Travis CI</system>
-		<url>https://travis-ci.org/scijava/native-lib-loader</url>
+		<system>None</system>
+		<url></url>
 	</ciManagement>
 
 	<properties>
-		<package-name>org.scijava.nativelib</package-name>
+		<package-name>nativeExeLoader</package-name>
 		<license.licenseName>bsd_2</license.licenseName>
 		<license.copyrightOwners>Board of Regents of the University of
-Wisconsin-Madison and Glencoe Software, Inc.</license.copyrightOwners>
-		<license.projectName>Native library loader for extracting and loading native libraries from Java.</license.projectName>
+Wisconsin-Madison, Glencoe Software, Inc., and programmerPhysicist</license.copyrightOwners>
+		<license.projectName>Native executable loader for extracting and loading native executables from Java.</license.projectName>
 		<scijava.jvm.version>1.6</scijava.jvm.version>
 		<plugin.animalsniffer.version>1.17</plugin.animalsniffer.version>
 
