@@ -33,7 +33,7 @@ public class NativeExecutableUtilTest {
 	}
         
         @Test
-        public void getPlatformExecutablePathNotEmptyTest() {
+        public void getPlatformExecutablePathTest() {
             PlatformUtil theSystem = mock(PlatformUtil.class);
             NativeExecutableUtil util = new NativeExecutableUtil();
             util.setPlatformUtil(theSystem);
@@ -44,5 +44,51 @@ public class NativeExecutableUtilTest {
         
             //run case with empty string given for executable
             assertEquals(util.getPlatformExecutablePath(""), "linux_32/");
+        }
+        
+        @Test
+        public void getPlatformExecutableNameTest() {
+            PlatformUtil theSystem = mock(PlatformUtil.class);
+            NativeExecutableUtil util = new NativeExecutableUtil();
+            util.setPlatformUtil(theSystem);
+            
+            doReturn(Architecture.AIX_32).when(theSystem).getArchitecture();
+            assertEquals("foo", util.getPlatformExecutableName("foo"));
+            
+            doReturn(Architecture.AIX_64).when(theSystem).getArchitecture();
+            assertEquals("foo", util.getPlatformExecutableName("foo"));
+            
+            doReturn(Architecture.LINUX_32).when(theSystem).getArchitecture();
+            assertEquals("foo", util.getPlatformExecutableName("foo"));
+            
+            doReturn(Architecture.LINUX_64).when(theSystem).getArchitecture();
+            assertEquals("foo", util.getPlatformExecutableName("foo"));
+            
+            doReturn(Architecture.LINUX_ARM).when(theSystem).getArchitecture();
+            assertEquals("foo", util.getPlatformExecutableName("foo"));
+            
+            doReturn(Architecture.LINUX_ARM64).when(theSystem).getArchitecture();
+            assertEquals("foo", util.getPlatformExecutableName("foo"));
+            
+            doReturn(Architecture.OSX_32).when(theSystem).getArchitecture();
+            assertEquals("foo", util.getPlatformExecutableName("foo"));
+            
+            doReturn(Architecture.OSX_64).when(theSystem).getArchitecture();
+            assertEquals("foo", util.getPlatformExecutableName("foo"));
+            
+            doReturn(Architecture.OSX_ARM64).when(theSystem).getArchitecture();
+            assertEquals("foo", util.getPlatformExecutableName("foo"));
+            
+            doReturn(Architecture.WINDOWS_32).when(theSystem).getArchitecture();
+            assertEquals("foo.exe", util.getPlatformExecutableName("foo"));
+            
+            doReturn(Architecture.WINDOWS_64).when(theSystem).getArchitecture();
+            assertEquals("foo.exe", util.getPlatformExecutableName("foo"));
+            
+            doReturn(Architecture.UNKNOWN).when(theSystem).getArchitecture();
+            assertEquals(null, util.getPlatformExecutableName("foo"));
+            
+            doReturn(Architecture.OSX_PPC).when(theSystem).getArchitecture();
+            assertEquals(null, util.getPlatformExecutableName("foo"));
         }
 }
